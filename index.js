@@ -22,7 +22,7 @@ dbConnection()
 
 app.use(express.json())
 
-// app.use(require('./src/middlewares/authentication'))
+app.use(require('./src/middlewares/authentication'))
 
 app.use(require('./src/middlewares/queryHandler'))
 
@@ -53,7 +53,8 @@ app.use(require('./src/middlewares/errorHandler'))
 //! RUN SERVER:
 
 app.listen(PORT, () => console.log('http://127.0.0.1:' + PORT))
+
 /* ------------------------------------------------------- */
 //! Syncronization 
 
-// require('./src/helpers/sync')() 
+// require('./src/helpers/sync')() // !!! Bütün dataları siler

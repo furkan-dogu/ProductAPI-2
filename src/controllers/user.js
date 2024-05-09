@@ -88,7 +88,7 @@ module.exports = {
             filter = { _id: req.user._id }
         }
 
-        const data = await User.updateOne({ _id: req.params.id, ...filter }, req.body)
+        const data = await User.updateOne({ _id: req.params.id, ...filter }, req.body, { runValidators: true })
 
         res.status(202).send({
             error: false,
