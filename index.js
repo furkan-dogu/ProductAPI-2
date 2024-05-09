@@ -36,9 +36,9 @@ app.all('/', (req, res) => {
         error: false,
         message: 'Welcome to PRODUCT API',
         docs: {
-            swagger: "http://127.0.0.1:8000/documents/swagger",
-            redoc: "http://127.0.0.1:8000/documents/redoc",
-            json: "http://127.0.0.1:8000/documents/json",
+            swagger: "https://product-api-2.vercel.app/documents/swagger",
+            redoc: "https://product-api-2.vercel.app/documents/redoc",
+            json: "https://product-api-2.vercel.app/documents/json",
         },
         user: req.user,
     })
