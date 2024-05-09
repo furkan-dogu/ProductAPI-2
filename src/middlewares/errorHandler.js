@@ -1,11 +1,11 @@
 "use strict"
 
 module.exports = (err, req, res, next) => {
-    const errorStatusCode = res.errorStatusCode ?? 500
-    console.log("errorHandler çalıştı.");
-    res.status(errorStatusCode).send({
+
+    return res.status(res?.errorStatusCode || 500).send({
         error: true,
         message: err.message,
-        cause: err.cause
-    })
+        cause: err.cause,
+        body: req.body
+    });
 }
