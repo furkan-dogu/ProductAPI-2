@@ -19,7 +19,7 @@ module.exports = {
             `
         */
 
-        const data = await res.getModelList(Product, {}, "category")
+        const data = await res.getModelList(Product, {}, { path: "category", select: "-createdAt -updatedAt -__v" })
 
         res.status(200).send({
             error: false,
@@ -68,7 +68,7 @@ module.exports = {
             #swagger.summary = "Get Single Product"
         */
 
-        const data = await Product.findOne({ _id: req.params.id }).populate("category")
+        const data = await Product.findOne({ _id: req.params.id }).populate({ path: "category", select: "-createdAt -updatedAt -__v" })
 
         res.status(200).send({
             error: false,

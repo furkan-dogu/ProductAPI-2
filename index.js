@@ -44,8 +44,6 @@ app.all('/', (req, res) => {
     })
 })
 
-app.use("/uploads", express.static("./uploads"))
-
 /* ------------------------------------------------------- */
 //! errorHandler:
 
