@@ -1,6 +1,8 @@
 "use strict"
 
-const HOST = "https://product-api-kappa.vercel.app"
+require('dotenv').config()
+const HOST = process.env?.HOST || '127.0.0.1'
+const PORT = process.env?.PORT || 8000
 
 const swaggerAutogen = require('swagger-autogen')()
 const packageJson = require('./package.json')
@@ -14,25 +16,20 @@ const document = {
 		contact: { name: packageJson.author, email: "furkandogu2018@gmail.com" },
 		license: { name: packageJson.license, },
 	},
-	host: `${HOST}`,
+	host: `${HOST}:${PORT}`,
 	basePath: '/',
-	schemes: ['https'],
-
-	definitions: {
-		"/login": {
-			email: {
-				type: "String",
-				required: true
-			},
-			password: {
-				type: "String",
-				required: true
-			},
-		},
-
-		"Product": require('./src/models/productModel').schema.obj,
-		"Category": require('./src/models/categoryModel').schema.obj,
-	}
+	schemes: ['http', 'https'],
+	consumes: ["application/json"],
+	produces: ["application/json"],
+	securityDefinitions: {
+		Token: {
+			type: 'apiKey',
+			in: 'header',
+			name: 'Authorization',
+			description: 'Simple Token Authentication * Example: <b>Token ...tokenKey...</b>'
+		}
+	},
+	security: [{ Token: [] }],
 };
 
 const routes = ['./index.js']

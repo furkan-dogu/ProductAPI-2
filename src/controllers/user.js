@@ -36,8 +36,8 @@ module.exports = {
                 in: 'body',
                 required: true,
                 schema: {
-                    email: "test",
-                    password: "123456"
+                    email: "test@test.com",
+                    password: "test"
                 }
             }
         */
@@ -77,8 +77,8 @@ module.exports = {
                 in: 'body',
                 required: true,
                 schema: {
-                    email: "test",
-                    password: "123456"
+                    email: "test@test.com",
+                    password: "test"
                 }
             }
         */

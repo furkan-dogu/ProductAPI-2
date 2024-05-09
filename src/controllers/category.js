@@ -6,8 +6,8 @@ module.exports = {
 
     list: async (req, res) => {
         /*
-            #swagger.tags = ["Users"]
-            #swagger.summary = "List Users"
+            #swagger.tags = ["Categories"]
+            #swagger.summary = "List Categories"
             #swagger.description = `
                 You can send query with endpoint for filter[], search[], sort[], page and limit.
                 <ul> Examples:

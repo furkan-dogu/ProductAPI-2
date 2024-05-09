@@ -7,6 +7,19 @@ const passwordEncrypt = require("../helpers/passwordEncrypt")
 module.exports = {
 
     login: async (req, res) => {
+        /*
+            #swagger.tags = ["Authentication"]
+            #swagger.summary = "Login"
+            #swagger.description = "Login with email and password"
+            #swagger.parameters["body"] = {
+                in: "body",
+                required: true,
+                schema: {
+                    "email": "test@test.com",
+                    "password": "test",
+                }
+            }
+        */
 
         const { email, password } = req.body
 
@@ -40,6 +53,11 @@ module.exports = {
     },
 
     logout: async (req, res) => {
+        /*
+            #swagger.tags = ["Authentication"]
+            #swagger.summary = "Logout"
+        */
+
         const auth = req.headers?.authorization || null 
         const tokenKey = auth ? auth.split(" ") : null 
         const result = await Token.deleteOne({ token: tokenKey[1] })
