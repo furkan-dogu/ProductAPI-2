@@ -1,12 +1,6 @@
 "use strict"
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
-const router = require('express').Router()
-/* ------------------------------------------------------- */
-// routes/document:
 
-// URL: /documents
+const router = require('express').Router()
 
 router.all('/', (req, res) => {
     res.send({
@@ -30,5 +24,4 @@ const swaggerUi = require('swagger-ui-express')
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.12.0/swagger-ui.min.css"
 router.use('/swagger', swaggerUi.serve, swaggerUi.setup(require('../configs/swagger.json'), { customCssUrl: CSS_URL }, { swaggerOptions: { persistAuthorization: true } }))
 
-/* ------------------------------------------------------- */
 module.exports = router
