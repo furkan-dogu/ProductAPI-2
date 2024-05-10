@@ -3,16 +3,16 @@
 const router = require("express").Router();
 
 const product = require("../controllers/product")
-const permissions = require("../middlewares/permissions")
+const { isAdmin } = require("../middlewares/permissions")
 
 router.route("/")
-    .get(permissions.isLogin, product.list)
-    .post(permissions.isAdmin, product.create)
+    .get(product.list)
+    .post(isAdmin, product.create)
 
 router.route("/:id")
-    .get(permissions.isLogin, product.read)
-    .put(permissions.isAdmin, product.update) 
-    .patch(permissions.isAdmin, product.update)
-    .delete(permissions.isAdmin, product.delete)
+    .get(product.read)
+    .put(isAdmin, product.update) 
+    .patch(isAdmin, product.update)
+    .delete(isAdmin, product.delete)
 
 module.exports = router
