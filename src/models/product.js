@@ -45,7 +45,6 @@ const ProductSchema = new mongoose.Schema(
         brand: {
             type: String,
             trim: true,
-            required: true
         },
 
         thumbnail: {
